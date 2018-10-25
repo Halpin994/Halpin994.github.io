@@ -2,7 +2,7 @@
 <html>
 <body>
 
-<p>Click the button get the text content of the button element.</p>
+<p>Click it NOW!</p>
 
 <button onclick="myFunction()" id="myBtn">Push my button</button>
 
@@ -15,6 +15,10 @@ function myFunction() {
     document.getElementById("demo").innerHTML = x;
 }
 </script>
+
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button>
 
 </body>
 </html>

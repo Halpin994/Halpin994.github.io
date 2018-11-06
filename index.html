@@ -292,5 +292,41 @@ function addToArray(){
 }
 </script>
 
+<br><!-- ------------------------------------------------------------------------------------------------------NEXT EXERCISE PART------------------------------------------------------------------------------------------------------ -->
+
+<script type="text/javascript">
+	
+function forLoopy(){
+
+	for(var i = 1; i < 101; i++){
+		if(i % 3 === 0 && i % 5 === 0){
+			console.log("FizzBuzz");
+			document.getElementById("LoopOutput").innerHTML += "FizzBuzz" + "<br>";
+		}
+		else if(i % 3 === 0){
+			console.log("Fizz");
+			document.getElementById("LoopOutput").innerHTML += "Fizz" + "<br>";
+		}
+		else if(i % 5 === 0){
+			console.log("Buzz");
+			document.getElementById("LoopOutput").innerHTML += "Buzz" + "<br>";
+		}
+		else {
+			console.log(i);
+			document.getElementById("LoopOutput").innerHTML += i + "<br>";
+		}
+	}
+}
+
+</script>
+<div>
+	<form>
+		<input type="button" value="Go Loopy" onClick='forLoopy()'>
+
+		<p id="LoopOutput">Loop to 100, Numbers divisible by 3 output Fizz. Numbers divisible by 5 output Buzz and if they are divisible by both, output FizzBuzz <br><br></p>
+	</form>
+</div>
+
+
 </body>
 </html>

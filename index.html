@@ -2,15 +2,24 @@
 <html>
 <body>
 
+<style>
+div {
+    background-color: lightgrey;
+    border: 1px solid blue;
+    padding: 5px;
+    margin: 5px;
+}
+</style>
+
 <p>Click it NOW!</p>
 
 <button onclick="myFunction()" id="myBtn">Push my button</button>
 
-<p id="demo"></p>
+<p id="demo">-_-</p>
 
 <script>
 function myFunction() {
-    var x = "Ooooo"
+    var x = "^_^ Ooooo"
     //document.getElementById("myBtn").textContent;
     document.getElementById("demo").innerHTML = x;
 }
@@ -21,13 +30,16 @@ function myFunction() {
 onclick="document.getElementById('demo').innerHTML = Date()">
 Click me to display Date and Time.</button>
 
-<h2>Exercises</h2>
+<br><!-- ------------------------------------------------------------------------------------------------------NEXT EXERCISE PART------------------------------------------------------------------------------------------------------ -->
 
+<h2>Exercises</h2>
+<div>
 <form name="squareForm">
  	Num * Num: <input type="text" name="inputNum" size=5>
 	<input type="button" value="Calculate" onClick='mySquare()'>
 	<input type="text" name="answer" size=10>
 </form>
+</div>
 
 <script type="text/javascript">
 function mySquare(){
@@ -48,21 +60,24 @@ var result = Math.sqrt(inputNum1);
 document.form1.answer.value = result;
 }
 </script>
-
+<div>
 <form name=form1>
 	Squared Root:
 	<input type="text" name="input1" size=5>
 	<input type="button" value="Calculate" onClick='doMath()'>
 	<input type="text" name="answer" size=10>
 </form>
+</div>
 
 <br><!-- ------------------------------------------------------------------------------------------------------NEXT EXERCISE PART------------------------------------------------------------------------------------------------------ -->
 
+<div>
 <form name="sum3Form">
  	Sum of 3: <input type="text" name="inputNum1" size=5> <input type="text" name="inputNum2" size=5> <input type="text" name="inputNum3" size=5>
 	<input type="button" value="Calculate" onClick='mySum()'>
 	<input type="text" name="answer" size=10>
 </form>
+</div>
 
 <script type="text/javascript">
 function mySum(){
@@ -77,66 +92,71 @@ function mySum(){
 
 <script>
 // Create an object:
+var myPerson = {
+    firstName : "Johnny",
+    lastName  : "Bravo",
+    age       : 26,
+    occupation: "Gang Member",
+};
+console.log(myPerson);
+
+function incrementAge(){
+	myPerson.age += +1;
+	console.log(myPerson);
+	document.getElementById("personAgeOut").innerHTML = myPerson.age;
+	document.getElementById("personAgeOut").innerHTML = "First name: " + myPerson.firstName  +"<br>"+ "Last name: " + myPerson.lastName +"<br>"+ "Age: " + myPerson.age +"<br>"+"Occupation: " + myPerson.occupation;
+}
+</script>
+
+<div>
+<form name="myPersonForm">
+	Increase Age: <input type="button" value="Increment" onClick='incrementAge()'>
+	<p id="personAgeOut">Ain't no thing but a chicken wing</p>
+</form>
+</div>
+
+<br><!-- ------------------------------------------------------------------------------------------------------NEXT EXERCISE PART------------------------------------------------------------------------------------------------------ -->
+
+<script>
+
 var person = {
     firstName : "Johnny",
     lastName  : "Bravo",
     age       : 26,
-    eyeColor  : "blue",
     occupation: "Gang Member",
-};
-console.log(person);
-
-function incrementAge(){
-	person.age += +1;
-	console.log(person);
-	document.myPersonForm.answer.value = person.age;
-}
-</script>
-
-<form name="myPersonForm">
-	Increase Age: <input type="button" value="Increment" onClick='incrementAge()'>
-	<input type="text" name="answer" size=10>
-</form>
-
-<br><!-- ------------------------------------------------------------------------------------------------------NEXT EXERCISE PART------------------------------------------------------------------------------------------------------ -->
-<script>
-var myPerson = {
-    firstName : "",
-    lastName  : "",
-    age       : 0,
-    occupation: "",
 };
 
 function addPerson(){
-	myPerson.firstName = document.myPersonInputForm.myName.value;
-	myPerson.lastName = document.myPersonInputForm.myName2.value;
-	myPerson.age = document.myPersonInputForm.myAge.value;
-	myPerson.occupation = document.myPersonInputForm.myOccupation.value;
-	console.log(myPerson);
+	person.firstName = document.myPersonInputForm.myName.value;
+	person.lastName = document.myPersonInputForm.myName2.value;
+	person.age = document.myPersonInputForm.myAge.value;
+	person.occupation = document.myPersonInputForm.myOccupation.value;
+	console.log(person);
 	document.getElementById("personOut").innerHTML = "First name: " + document.myPersonInputForm.myName.value  +"<br>"+ "Last name: " + document.myPersonInputForm.myName2.value +"<br>"+ "Age: " + document.myPersonInputForm.myAge.value +"<br>"+"Occupation: " + document.myPersonInputForm.myOccupation.value;
 }
 
 function updateFirstName(){
-	myPerson.firstName = document.myPersonUpdateForm.myNameUp.value;
-	document.getElementById("personOut").innerHTML = "First name: " + myPerson.firstName  +"<br>"+ "Last name: " + myPerson.lastName +"<br>"+ "Age: " + myPerson.age +"<br>"+"Occupation: " + myPerson.occupation;
+	person.firstName = document.myPersonUpdateForm.myNameUp.value;
+	document.getElementById("personOut").innerHTML = "First name: " + person.firstName  +"<br>"+ "Last name: " + person.lastName +"<br>"+ "Age: " + person.age +"<br>"+"Occupation: " + person.occupation;
 }
 function updateLastName(){
-	myPerson.lastName = document.myPersonUpdateForm.myName2Up.value;
-	document.getElementById("personOut").innerHTML = "First name: " + myPerson.firstName  +"<br>"+ "Last name: " + myPerson.lastName +"<br>"+ "Age: " + myPerson.age +"<br>"+"Occupation: " + myPerson.occupation;
+	person.lastName = document.myPersonUpdateForm.myName2Up.value;
+	document.getElementById("personOut").innerHTML = "First name: " + person.firstName  +"<br>"+ "Last name: " + person.lastName +"<br>"+ "Age: " + person.age +"<br>"+"Occupation: " + person.occupation;
 }
 function updateAge(){
-	myPerson.age = document.myPersonUpdateForm.myAgeUp.value;
-	document.getElementById("personOut").innerHTML = "First name: " + myPerson.firstName  +"<br>"+ "Last name: " + myPerson.lastName +"<br>"+ "Age: " + myPerson.age +"<br>"+"Occupation: " + myPerson.occupation;
+	person.age = document.myPersonUpdateForm.myAgeUp.value;
+	document.getElementById("personOut").innerHTML = "First name: " + person.firstName  +"<br>"+ "Last name: " + person.lastName +"<br>"+ "Age: " + person.age +"<br>"+"Occupation: " + person.occupation;
 }
 function updateOccupation(){
-	myPerson.occupation = document.myPersonUpdateForm.myOccupationUp.value;
-	document.getElementById("personOut").innerHTML = "First name: " + myPerson.firstName  +"<br>"+ "Last name: " + myPerson.lastName +"<br>"+ "Age: " + myPerson.age +"<br>"+"Occupation: " + myPerson.occupation;
+	person.occupation = document.myPersonUpdateForm.myOccupationUp.value;
+	document.getElementById("personOut").innerHTML = "First name: " + person.firstName  +"<br>"+ "Last name: " + person.lastName +"<br>"+ "Age: " + person.age +"<br>"+"Occupation: " + person.occupation;
 }
 
 </script>
 
+<div>
 <form name="myPersonInputForm">
-	_____Create Person_____<br>
+	Create Person<br>
 	First Name: <input type="text" name="myName" size=5 placeholder="Ilkka">
 	Second Name: <input type="text" name="myName2" size=5 placeholder="Paananen">
 	Age: <input type="text" name="myAge" size=5 placeholder="40">
@@ -147,16 +167,17 @@ function updateOccupation(){
 </form>
 
 <form name="myPersonUpdateForm">
-	_____Update Person Details_____<br>
+	Update Person Details<br>
 	First Name: <input type="text" name="myNameUp" size=5 placeholder="Ilkka"><input type="button" value="Submit" onClick='updateFirstName()'>
 	Second Name: <input type="text" name="myName2Up" size=5 placeholder="Paananen"><input type="button" value="Submit" onClick='updateLastName()'>
 	Age: <input type="text" name="myAgeUp" size=5 placeholder="40"><input type="button" value="Submit" onClick='updateAge()'>
 	Occupation: <input type="text" name="myOccupationUp" size=15 placeholder="CEO of Supercell"><input type="button" value="Submit" onClick='updateOccupation()'>
 </form>
+</div>
 
 <br><!-- ------------------------------------------------------------------------------------------------------NEXT EXERCISE PART------------------------------------------------------------------------------------------------------ -->
 
-<p id="arrayOut">Soulja Boy Tellem</p>
+
 
 <script>
 	var cars = [
@@ -184,12 +205,15 @@ function addToArray(){
 }
 </script>
 
-<form name="ArrayForm">
-	<input type="text" name="add2Array" size=5 placeholder="Nerd"><input type="button" value="Submit" onClick='addToArray()'>
-	<input type="button" value="Delete Element [0]" onClick='deleteArray()'>
-	<input type="button" value="Delete Last Element" onClick='popArray()'>
-	<input type="button" value="Refresh Array" onClick='printArray()'>
-</form>
+<div>
+<p id="arrayOut">Soulja Boy Tellem</p>
+	<form name="ArrayForm">
+		<input type="text" name="add2Array" size=5 placeholder="Nerd"><input type="button" value="Submit" onClick='addToArray()'>
+		<input type="button" value="Delete Element [0]" onClick='deleteArray()'>
+		<input type="button" value="Delete Last Element" onClick='popArray()'>
+		<input type="button" value="Refresh Array" onClick='printArray()'>
+	</form>
+</div>
 
 <br><!-- ------------------------------------------------------------------------------------------------------NEXT EXERCISE PART------------------------------------------------------------------------------------------------------ -->
 

@@ -2,6 +2,134 @@
 <html>
 <body>
 
+  <canvas id="myCanvas" width="800" height="500" style="border:1px solid #000000;">
+  </canvas>
+
+<script>
+var canvas = document.getElementById('myCanvas');
+var ctx = canvas.getContext('2d');
+
+playerImage = new Image();
+playerImage.src = "images/Spaceship.png";
+
+var xPos = canvas.width/2 - 25;
+var yPos = canvas.height;
+var speed = 2;
+
+var keyState = {};
+
+</script>
+
+
+
+<script type="text/javascript">
+
+function Draw()
+{
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(playerImage,xPos,yPos);
+}
+function KeyPress() {
+  window.addEventListener('keydown',function(e){
+      keyState[e.keyCode || e.which] = true;
+  },true);
+
+  window.addEventListener('keyup',function(e){
+      keyState[e.keyCode || e.which] = false;
+  },true);
+
+  if (keyState[65]){
+  xPos -=speed;
+  }
+  if (keyState[68]){
+  xPos +=speed;
+  }
+  if (keyState[87]){
+  yPos -=speed;
+  }
+  if (keyState[83]){
+  yPos +=speed;
+  }
+}
+
+function checkBounds(){
+  if (xPos <= 0){
+    xPos = 0;
+  }
+  if (xPos + playerImage.width >= canvas.width){
+    xPos = canvas.width - playerImage.width;
+  }
+  if (yPos + playerImage.height >= canvas.height){
+    yPos = canvas.height - playerImage.height;
+  }
+  if (yPos <= 0){
+    yPos = 0;
+  }
+}
+
+function gameLoop() {
+
+    KeyPress();
+    checkBounds();
+    Draw();
+
+    setTimeout(gameLoop, 1);
+}
+
+gameLoop();
+
+
+
+
+
+</script>
+
+
+
+<!--
+
+setInterval(function(){ Player(); }, 16);
+
+addEventListener("keydown",function(e)
+{
+    if(e.keyCode == 68) //d
+    {
+        playerDirection = 1;
+        xPos += 10;
+    }
+    if(e.keyCode == 83) //s
+    {
+        playerDirection = 2;
+        yPos += 10;
+    }
+    if(e.keyCode == 65) //a
+    {
+        playerDirection = 3;
+        xPos -= 10;
+    }
+    if(e.keyCode == 87) //w
+    {
+        playerDirection = 4;
+        yPos -= 10;
+    }
+});
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><!-- ------------------------------------------------------------------------------------------------------NEXT EXERCISE PART------------------------------------------------------------------------------------------------------ -->
+
 <style>
 div {
     background-color: lightgrey;
@@ -295,7 +423,7 @@ function addToArray(){
 <br><!-- ------------------------------------------------------------------------------------------------------NEXT EXERCISE PART------------------------------------------------------------------------------------------------------ -->
 
 <script type="text/javascript">
-	
+
 function forLoopy(){
 
 	for(var i = 1; i < 101; i++){
